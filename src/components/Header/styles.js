@@ -16,6 +16,7 @@ export const Header = styled.header`
   max-width: var(--size-notebook);
   width: 90%;
   height: 100%;
+  padding-right: 9.6rem;
 
   justify-content: space-between;
 
