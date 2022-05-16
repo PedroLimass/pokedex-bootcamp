@@ -17,7 +17,7 @@ const Home = () => {
         </Link>
       </S.InfoPokedex>
       <S.AssetSide>
-        <img src={PokemonHome} alt="Pikachu Banner" />
+        <img src={PokemonHome} alt="Pikachu Banner" className="imgResponsive" />
       </S.AssetSide>
     </S.Container>
   );

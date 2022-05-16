@@ -41,8 +41,6 @@ export const PokemonsPage = () => {
     getAllPokemons();
   }, []);
 
-  console.log(typeof allPokemons);
-
   useEffect(() => {
     setloadData(false);
   }, [loadMore]);

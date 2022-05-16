@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { pokedexColorsBody } from "../../styles/theme";
+import { breakPoints } from "../../utils/screenSizes";
 
 export const Container = styled.div`
   display: flex;
@@ -24,6 +25,38 @@ export const Header = styled.header`
     width: 159px;
     height: 60px;
   }
+
+  .menuIcon {
+    font-size: 30px;
+    display: none;
+    @media (max-width: ${breakPoints.ipadAir}) {
+      display: inline;
+      margin: -25px;
+    }
+  }
+
+  .boxMenu {
+    width: auto;
+    height: 35px;
+  }
+
+  .closeIcon {
+    font-size: 20px;
+    margin: -15px;
+  }
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    padding-right: 0px;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  @media (max-width: ${breakPoints.mobile}) {
+    .closeIcon {
+      margin: 0;
+      margin: -15px -15px -15px 20px;
+    }
+  }
 `;
 
 export const Menu = styled.nav`
@@ -39,5 +72,17 @@ export const Menu = styled.nav`
     font-size: 25px;
     font-weight: 400;
     line-height: 34px;
+  }
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    position: relative;
+    top: -24px;
+    right: -40px;
+
+    padding: 10px;
+
+    display: ${({ showMenu }) => {
+      return showMenu ? "inline" : "none";
+    }};
   }
 `;

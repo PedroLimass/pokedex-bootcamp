@@ -10,7 +10,6 @@ export const CustomLink = ({ children, to }) => {
       <Link className={`${match && "active"}`} to={to}>
         {children}
       </Link>
-      {/* {match && " (active)"} */}
     </S.ContainerCustom>
   );
 };

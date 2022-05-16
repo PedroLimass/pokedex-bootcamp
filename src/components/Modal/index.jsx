@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 
+import { useEffect, useState } from "react";
 import * as S from "./styles";
 import closeIcon from "../../assets/closeIcon.svg";
 import TagType from "../Tag";
@@ -18,6 +20,17 @@ const Modal = ({
   abilities,
   stats,
 }) => {
+  const [description, setDescription] = useState();
+  const LoadDescription = async () => {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${1}/`);
+    const data = await res.json();
+    setDescription(data.flavor_text_entries[0].flavor_text);
+  };
+
+  useEffect(() => {
+    LoadDescription();
+  }, []);
+
   return (
     <S.Container>
       <S.ModalWrapper>
@@ -38,10 +51,7 @@ const Modal = ({
             <h1>{pokemonName}</h1>
             <span bgColor={bgColor}>{order}</span>
           </S.HeaderModal>
-          <p>
-            Charizard é um Pokémon bípede dracônico . É principalmente laranja
-            com uma parte inferior creme do peito até a ponta da cauda.{" "}
-          </p>
+          <p>{description}</p>
           <StatsSection weight={weight} height={height} ability={abilities} />
           <ProgressState stats={stats} />
         </S.ModalContent>

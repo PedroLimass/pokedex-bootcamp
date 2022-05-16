@@ -20,33 +20,20 @@ export default createGlobalStyle`
       text-decoration: none;
     }
 
-    /* p, span, a {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 36px;
-      letter-spacing: 0.02em;      
-    } */
+    
 
     img {
       text-decoration: none;
     }
 
-    /* header {
-      h3 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 25px;
-        font-weight: 400;
-        line-height: 34px;
-        letter-spacing: 0em;        
-      }
-    }    */
+    
 
     
   }
   :root {
     --size-mobile: 600px;
     --size-ipad: 768px;
+    --size-ipad-air: 820px;
     --size-ipadPro: 1024px;
     --size-notebook: 1200px;
     --size-desktop: 1800px;
@@ -55,7 +42,7 @@ export default createGlobalStyle`
     font-family: 'Karla', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Roboto', sans-serif;
-    font-family: 'Source Sans Pro', sans-serif; */
+    font-family: "Source Sans Pro", sans-serif; */
          
   }
 `;

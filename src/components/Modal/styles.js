@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoints } from "../../utils/screenSizes";
 
 export const Container = styled.div`
   width: 100%;
@@ -10,6 +11,18 @@ export const Container = styled.div`
   left: 0;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 70px;
+  }
+
+  @media (max-width: ${breakPoints.mobile}) {
+    padding: 1rem 0;
+    overflow: scroll;
+  }
 `;
 
 export const ModalWrapper = styled.div`
@@ -23,6 +36,18 @@ export const ModalWrapper = styled.div`
   position: relative;
   z-index: 10;
   border-radius: 8px;
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 370px;
+  }
+
+  @media (max-width: ${breakPoints.mobile}) {
+    overflow-y: scroll;
+  }
 `;
 
 export const ModalImg = styled.img`
@@ -46,6 +71,10 @@ export const SideImage = styled.div`
   padding: 16px;
   position: relative;
   box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    width: 100%;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -69,6 +98,10 @@ export const ModalContent = styled.div`
     align-self: flex-start;
     margin-bottom: 15px;
   }
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    padding-left: 20px;
+  }
 `;
 
 export const CloseModalButton = styled.img`
@@ -80,6 +113,10 @@ export const CloseModalButton = styled.img`
   height: 32px;
   padding: 0;
   z-index: 10;
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    top: 15px;
+  }
 `;
 
 export const HeaderModal = styled.div`

@@ -5,6 +5,8 @@ import {
   pokedexColorsDark,
 } from "../../styles/theme";
 
+import { breakPoints } from "../../utils/screenSizes";
+
 export const Container = styled.div`
   display: flex;
   width: 100%;
@@ -21,7 +23,7 @@ export const Container = styled.div`
     padding: 18px 27px 24px;
     background-color: ${pokedexColors.water};
     border-radius: 11px;
-    font-family: Inter;
+    font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
@@ -38,7 +40,7 @@ export const Container = styled.div`
 
 export const HeaderText = styled.p`
   width: 100%;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 35px;
   font-weight: 400;
   line-height: 42px;
@@ -56,7 +58,7 @@ export const SearchBox = styled.input`
 
   box-shadow: 4px 4px 16px 0px #011c401a;
   padding-left: 31px;
-  font-family: Open Sans;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -65,19 +67,23 @@ export const SearchBox = styled.input`
   ::placeholder {
     color: ${pokedexColorsBody.tinyBlack};
   }
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    width: 90%;
+  }
 `;
 
 export const SelectBox = styled.select`
   max-width: 135px;
   height: 20px;
-  font-family: Open Sans;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   text-align: center;
 
   option {
-    font-family: Source Sans Pro;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -93,15 +99,28 @@ export const Grid = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 20px;
   margin-top: 54px;
+
+  @media (max-width: ${breakPoints.ipadPro}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: ${breakPoints.mobile}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const LoadBtnRow = styled.div`
   width: 100%;
-  height: auto;
+
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0px;
+  padding: 20px 0px 40px 0px;
   overflow: auto;
 
   > :first-child {
