@@ -52,7 +52,7 @@ const PokemonCard = ({
         <Modal
           setOpenModal={setShowModal}
           pokemonName={NamePokemon}
-          order={zeroPad(order)}
+          order={order}
           bgColor={bgColor}
           IdColor={IdColor}
           image={image}
