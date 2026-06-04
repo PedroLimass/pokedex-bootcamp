@@ -15,5 +15,4 @@ declare module "*.jpg" {
   export default src;
 }
 
-declare module "ms-react-progress-bar";
 declare module "react-loading-dot";

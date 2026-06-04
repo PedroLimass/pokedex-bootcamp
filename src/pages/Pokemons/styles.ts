@@ -74,17 +74,20 @@ export const SearchBox = styled.input`
 `;
 
 export const Grid = styled.div`
+  width: 100%;
+  max-width: 1088px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 10px;
+  grid-column-gap: 16px;
   grid-row-gap: 20px;
-  margin-top: 54px;
+  margin-top: 40px;
 
   @media (max-width: ${breakPoints.ipadPro}) {
     grid-template-columns: repeat(4, 1fr);
   }
 
   @media (max-width: ${breakPoints.ipadAir}) {
+    width: 90%;
     grid-template-columns: repeat(3, 1fr);
   }
 

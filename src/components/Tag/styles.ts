@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import { pokedexColorsBody } from "../../styles/theme";
 
-export const TagType = styled.div<{ $size?: "high" }>`
-  display: flex;
+export const TagType = styled.span<{ $size?: "high" }>`
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 
-  width: 100%;
-  max-width: ${({ $size }) => ($size === "high" ? "71px" : "51px")};
-  height: ${({ $size }) => ($size === "high" ? "30px" : "16px")};
+  padding: ${({ $size }) => ($size === "high" ? "7px 16px" : "4px 12px")};
 
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: ${({ $size }) => ($size === "high" ? "14px" : "8px")};
-  font-weight: ${({ $size }) => ($size === "high" ? "400" : "500")};
-  letter-spacing: 0em;
+  font-family: "Inter", sans-serif;
+  font-size: ${({ $size }) => ($size === "high" ? "14px" : "12px")};
+  font-weight: 600;
+  letter-spacing: 0.2px;
   text-align: center;
   color: ${pokedexColorsBody.white};
 
-  background: rgb(255, 255, 255, 0.4);
-  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
 `;

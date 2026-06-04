@@ -1,4 +1,5 @@
 import { capitalize } from "../../utils/capitalize";
+import { TYPE_LABELS } from "../../constants/pokemon";
 import * as S from "./styles";
 
 interface TagTypeProps {
@@ -7,7 +8,8 @@ interface TagTypeProps {
 }
 
 const TagType = ({ children, size }: TagTypeProps) => {
-  return <S.TagType $size={size}>{capitalize(children)}</S.TagType>;
+  const label = TYPE_LABELS[children] ?? capitalize(children);
+  return <S.TagType $size={size}>{label}</S.TagType>;
 };
 
 export default TagType;

@@ -1,117 +1,91 @@
 import styled from "styled-components";
+import { pokedexColorsBody } from "../../styles/theme";
 import { breakPoints } from "../../utils/screenSizes";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
   position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
-  top: 0;
-  left: 0;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-
-  @media (max-width: ${breakPoints.ipadAir}) {
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 70px;
-  }
+  padding: 20px;
 
   @media (max-width: ${breakPoints.mobile}) {
-    padding: 1rem 0;
-    overflow: scroll;
+    padding: 12px;
+    align-items: flex-start;
   }
 `;
 
 export const ModalWrapper = styled.div`
-  width: 800px;
-  height: 370px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: min(92vw, 860px);
+  max-height: 90vh;
   background: #fff;
   color: #000;
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  z-index: 10;
-  border-radius: 8px;
+  grid-template-columns: 340px 1fr;
+  overflow: hidden;
 
   @media (max-width: ${breakPoints.ipadAir}) {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    width: 370px;
+    grid-template-columns: 1fr;
+    max-height: 88vh;
+    overflow-y: auto;
   }
+`;
 
-  @media (max-width: ${breakPoints.mobile}) {
-    overflow-y: scroll;
+export const SideImage = styled.div<{ $bgColor: string }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: ${({ $bgColor }) => $bgColor};
+  padding: 24px;
+
+  @media (max-width: ${breakPoints.ipadAir}) {
+    padding: 32px 24px 20px;
   }
 `;
 
 export const ModalImg = styled.img`
-  max-width: 280px;
-  max-height: 340px;
   width: 100%;
+  max-width: 240px;
   height: auto;
-  border-radius: 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+
+  @media (max-width: ${breakPoints.mobile}) {
+    max-width: 180px;
+  }
 `;
 
-export const SideImage = styled.div<{ $bgColor: string }>`
-  width: 364px;
-  height: 370px;
+export const RowTags = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: ${({ $bgColor }) => $bgColor};
-  padding: 16px;
-  position: relative;
-  box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
-
-  @media (max-width: ${breakPoints.ipadAir}) {
-    width: 100%;
-  }
+  flex-direction: row;
+  gap: 10px;
 `;
 
 export const ModalContent = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 30px 23px 30px 0px;
+  padding: 28px 28px 32px;
+  overflow-y: auto;
 
-  border-radius: 8px;
-
-  p {
-    max-width: 330px;
-    max-height: 70px;
+  p.description {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0em;
-    text-align: left;
-    align-self: flex-start;
-    margin-bottom: 15px;
+    line-height: 22px;
+    color: ${pokedexColorsBody.tinyBlack};
+    margin-bottom: 18px;
   }
 
   @media (max-width: ${breakPoints.ipadAir}) {
-    padding-left: 20px;
-  }
-`;
-
-export const CloseModalButton = styled.img`
-  cursor: pointer;
-  position: absolute;
-  top: -48px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  z-index: 10;
-
-  @media (max-width: ${breakPoints.ipadAir}) {
-    top: 15px;
+    overflow-y: visible;
+    padding: 20px 24px 28px;
   }
 `;
 
@@ -121,36 +95,105 @@ export const HeaderModal = styled.div<{ $bgColor: string }>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 
   h1 {
     font-family: "Karla", sans-serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
-    line-height: 42px;
-    letter-spacing: 0em;
+    line-height: 38px;
     text-align: left;
-    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
   }
 
   span {
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
     color: ${({ $bgColor }) => $bgColor};
   }
 `;
 
-export const RowTags = styled.div`
-  width: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+export const CloseModalButton = styled.button`
   position: absolute;
-  bottom: 15px;
-  right: 10px;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    background: #fff;
+    transform: scale(1.08);
+  }
+`;
+
+export const Section = styled.div`
+  margin-top: 18px;
+`;
+
+export const SectionTitle = styled.h4`
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: ${pokedexColorsBody.tinyBlack};
+  margin-bottom: 8px;
+`;
+
+export const ChipRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+export const AbilityChip = styled.span`
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(1, 28, 64, 0.06);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: ${pokedexColorsBody.black};
+
+  small {
+    color: ${pokedexColorsBody.tinyBlack};
+    opacity: 0.7;
+    font-size: 11px;
+    margin-left: 4px;
+  }
+`;
+
+export const WeaknessChip = styled.span<{ $color: string }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: ${({ $color }) => $color};
+  color: ${pokedexColorsBody.white};
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  strong {
+    font-weight: 700;
+    font-size: 12px;
+    opacity: 0.9;
+  }
 `;
