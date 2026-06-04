@@ -12,11 +12,17 @@ export const Container = styled.div`
   max-width: var(--size-notebook);
   margin: 0 auto;
   flex-direction: row;
-  padding-top: 6.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: calc(100vh - 93px);
+  padding: 0 1rem;
 
   @media (max-width: ${breakPoints.ipadAir}) {
     flex-direction: column;
-    padding: 2.25rem 10% 0;
+    justify-content: center;
+    min-height: auto;
+    padding: 2.25rem 10% 3rem;
   }
 `;
 
@@ -80,13 +86,18 @@ export const InfoPokedex = styled.div`
 `;
 
 export const AssetSide = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: auto;
 
   .imgResponsive {
-    width: auto;
+    width: 100%;
+    max-width: 520px;
     height: auto;
-    margin-top: 10%;
+    max-height: calc(100vh - 160px);
+    object-fit: contain;
+
     @media (max-width: ${breakPoints.mobile}) {
       max-width: 440px;
     }
