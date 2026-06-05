@@ -47,15 +47,9 @@ export const PokemonsPage = () => {
           : "Mais de 1000 Pokémons para você escolher o seu favorito"}
       </S.HeaderText>
 
-      <S.SearchBox
-        type="text"
-        placeholder="Buscar por nome (ex.: pikachu) ou número (ex.: 25)"
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-        aria-label="Buscar pokemon por nome ou número"
-      />
-
       <FilterBar
+        search={search}
+        onSearchChange={setSearch}
         selectedTypes={types}
         onToggleType={toggleType}
         generation={generation}

@@ -81,6 +81,11 @@ export const ResultPanel = styled.section`
   border-radius: 20px;
   background: ${pokedexColorsBody.white};
   box-shadow: 0 12px 32px rgba(1, 28, 64, 0.14);
+
+  @media (max-width: ${breakPoints.mobile}) {
+    padding: 20px 14px;
+    border-radius: 16px;
+  }
 `;
 
 export const WinnerBanner = styled.div`
@@ -101,6 +106,18 @@ export const WinnerBanner = styled.div`
     font-size: 15px;
     color: ${pokedexColorsBody.tinyBlack};
   }
+
+  @media (max-width: ${breakPoints.mobile}) {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 23px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const Combatants = styled.div`
@@ -108,6 +125,11 @@ export const Combatants = styled.div`
   grid-template-columns: 1fr 64px 1fr;
   align-items: center;
   gap: 24px;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    grid-template-columns: 1fr 32px 1fr;
+    gap: 6px;
+  }
 `;
 
 type CombatantState = "winner" | "loser" | "draw";
@@ -138,11 +160,12 @@ export const Combatant = styled.div<{ $state: CombatantState }>`
   }
 
   @media (max-width: ${breakPoints.mobile}) {
-    padding: 12px 6px;
+    padding: 12px 4px;
+    gap: 6px;
 
     img {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
     }
   }
 `;
@@ -160,6 +183,12 @@ export const CombatantName = styled.h3`
   font-weight: 700;
   color: ${pokedexColorsBody.black};
   text-transform: capitalize;
+  text-align: center;
+  word-break: break-word;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    font-size: 14px;
+  }
 `;
 
 export const ResultVs = styled.div`
@@ -170,6 +199,11 @@ export const ResultVs = styled.div`
   font-weight: 800;
   color: ${pokedexColors.fire};
   justify-self: center;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    width: 32px;
+    font-size: 15px;
+  }
 `;
 
 export const HpBarTrack = styled.div`
@@ -192,6 +226,11 @@ export const HpText = styled.span`
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   color: ${pokedexColorsBody.tinyBlack};
+  white-space: nowrap;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    font-size: 11px;
+  }
 `;
 
 export const Meta = styled.p`
@@ -216,6 +255,10 @@ export const CompareRow = styled.div`
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid #eee;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    gap: 8px;
+  }
 `;
 
 export const CompareLabel = styled.span`
@@ -225,6 +268,13 @@ export const CompareLabel = styled.span`
   letter-spacing: 0.5px;
   color: ${pokedexColorsBody.tinyBlack};
   white-space: nowrap;
+  text-align: center;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    font-size: 11px;
+    letter-spacing: 0;
+    white-space: normal;
+  }
 `;
 
 export const CompareCell = styled.strong<{

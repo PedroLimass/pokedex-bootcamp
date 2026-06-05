@@ -1,3 +1,4 @@
+import { FiSearch } from "react-icons/fi";
 import {
   GENERATIONS,
   POKEMON_TYPES,
@@ -10,6 +11,8 @@ import { pokedexColors } from "../../styles/theme";
 import * as S from "./styles";
 
 interface FilterBarProps {
+  search: string;
+  onSearchChange: (value: string) => void;
   selectedTypes: string[];
   onToggleType: (type: string) => void;
   generation: number | null;
@@ -20,6 +23,8 @@ interface FilterBarProps {
 }
 
 const FilterBar = ({
+  search,
+  onSearchChange,
   selectedTypes,
   onToggleType,
   generation,
@@ -33,6 +38,19 @@ const FilterBar = ({
 
   return (
     <S.Wrapper>
+      <S.SearchField>
+        <S.SearchIcon>
+          <FiSearch />
+        </S.SearchIcon>
+        <S.SearchInput
+          type="text"
+          placeholder="Buscar por nome (ex.: pikachu) ou número (ex.: 25)"
+          value={search}
+          onChange={(event) => onSearchChange(event.target.value)}
+          aria-label="Buscar pokemon por nome ou número"
+        />
+      </S.SearchField>
+
       <S.Controls>
         <S.Field>
           Ordenar por
@@ -76,24 +94,27 @@ const FilterBar = ({
         )}
       </S.Controls>
 
-      <S.Chips>
-        {POKEMON_TYPES.map((type) => {
-          const color = colorBackgroundCard(type, pokedexColors);
-          const active = selectedTypes.includes(type);
-          return (
-            <S.Chip
-              key={type}
-              type="button"
-              $color={color}
-              $active={active}
-              aria-pressed={active}
-              onClick={() => onToggleType(type)}
-            >
-              {TYPE_LABELS[type] ?? type}
-            </S.Chip>
-          );
-        })}
-      </S.Chips>
+      <S.ChipsGroup>
+        <S.ChipsLabel>Filtrar por tipo</S.ChipsLabel>
+        <S.Chips>
+          {POKEMON_TYPES.map((type) => {
+            const color = colorBackgroundCard(type, pokedexColors);
+            const active = selectedTypes.includes(type);
+            return (
+              <S.Chip
+                key={type}
+                type="button"
+                $color={color}
+                $active={active}
+                aria-pressed={active}
+                onClick={() => onToggleType(type)}
+              >
+                {TYPE_LABELS[type] ?? type}
+              </S.Chip>
+            );
+          })}
+        </S.Chips>
+      </S.ChipsGroup>
     </S.Wrapper>
   );
 };

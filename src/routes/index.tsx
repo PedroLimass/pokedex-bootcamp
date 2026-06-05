@@ -13,7 +13,6 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/pokemons" element={<PokemonsPage />} />
         <Route path="/compare" element={<ComparePage />} />
-        <Route path="/contacts" element={<h1>Contatos</h1>} />
       </Routes>
       <GlobalStyle />
     </BrowserRouter>

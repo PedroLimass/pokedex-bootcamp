@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/pokemons", label: "Pokémons" },
   { to: "/compare", label: "Comparar" },
-  { to: "/contacts", label: "Contato" },
 ];
 
 const Header = () => {

@@ -49,30 +49,6 @@ export const HeaderText = styled.p`
   margin-bottom: 30px;
 `;
 
-export const SearchBox = styled.input`
-  max-width: 1088px;
-  width: 100%;
-  height: 53px;
-  border-radius: 40px;
-  border: 1px solid #f1f1f1;
-
-  box-shadow: 4px 4px 16px 0px #011c401a;
-  padding-left: 31px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  ::placeholder {
-    color: ${pokedexColorsBody.tinyBlack};
-  }
-
-  @media (max-width: ${breakPoints.ipadAir}) {
-    width: 90%;
-  }
-`;
-
 export const Grid = styled.div`
   width: 100%;
   max-width: 1088px;
